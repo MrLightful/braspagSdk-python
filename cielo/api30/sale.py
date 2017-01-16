@@ -9,6 +9,12 @@ class Sale(ObjectJSON):
         self.customer = None
         self.payment = None
 
-    def update_return(self, response_return):
+    def update_return(self, r):
 
-        self.payment.payment_id = response_return['Payment'].get('PaymentId')
+        payment = r.get('Payment') or {}
+
+        self.payment.payment_id = payment.get('PaymentId')
+
+        recurrent = payment.get('RecurrentPayment') or {}
+
+        self.payment.recurrent_payment.recurrent_payment_id = recurrent.get('RecurrentPaymentId')

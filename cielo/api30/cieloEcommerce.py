@@ -3,6 +3,7 @@ from .request.createSale import CreateSale
 from .request.querySale import QuerySale
 from .request.updateSale import UpdateSale
 from .request.createCardToken import CreateCardToken
+from .request.queryRecorrency import QueryRecorrency
 
 class CieloEcommerce(object):
 
@@ -42,3 +43,10 @@ class CieloEcommerce(object):
         request = CreateCardToken(self.merchant, self.environment)
 
         return request.execute(creditCard)
+
+    def get_recurrent_payment(self, recurrent_payment_id):
+
+        request = QueryRecorrency(self.merchant, self.environment)
+
+        return request.execute(recurrent_payment_id)
+

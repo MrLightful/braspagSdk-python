@@ -44,6 +44,10 @@ print '----------------------response_create_sale----------------------'
 print json.dumps(response_create_sale, indent=2)
 print '----------------------response_create_sale----------------------'
 
+
+
+
+
 # Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
 # dados retornados pela Cielo
 payment_id = sale.payment.payment_id
@@ -60,3 +64,16 @@ response_cancel_sale = cielo_ecommerce.cancel_sale(payment_id, 15700)
 print '---------------------response_cancel_sale---------------------'
 print json.dumps(response_cancel_sale, indent=2)
 print '---------------------response_cancel_sale---------------------'
+
+
+
+
+
+# Com a venda recorrente criada na Cielo, já temos o ID do pagamento recorrente
+recurrent_payment_id = sale.payment.recurrent_payment.recurrent_payment_id
+
+# Consulta informações da venda recorrente
+response_recurrent_payment_id = cielo_ecommerce.get_recurrent_payment(recurrent_payment_id)
+print '---------------------response_recurrent_payment_id---------------------'
+print json.dumps(response_recurrent_payment_id, indent=2)
+print '---------------------response_recurrent_payment_id---------------------'

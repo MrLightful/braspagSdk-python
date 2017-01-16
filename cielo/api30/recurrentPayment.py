@@ -13,3 +13,4 @@ class RecurrentPayment(object):
         self.start_date = None
         self.end_date = None
         self.interval = None
+        self.recurrent_payment_id = None
