@@ -3,9 +3,9 @@
 import sys
 sys.path.insert(0, "./")
 
-import json
-
 from cieloApi3 import *
+
+import json
 
 # Configure o ambiente
 environment = Environment(sandbox=True)

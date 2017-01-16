@@ -9,8 +9,8 @@ SDK API-3.0 Python Cielo
     * [x] Com autorização na primeira recorrência.
     * [x] Com autorização a partir da primeira recorrência.
 * [x] Pagamentos por cartão de débito.
-* [x] Pagamentos por boleto.
-* [x] Pagamentos por transferência eletrônica.
+* [x] Pagamentos por boleto (Bradesco e Banco do Brasil).
+* [ ] Pagamentos por transferência eletrônica.
 * [x] Cancelamento de autorização.
 * [x] Consulta de pagamentos.
 
@@ -19,15 +19,21 @@ SDK API-3.0 Python Cielo
 Por envolver a interface de usuário da aplicação, o SDK funciona apenas como um framework para criação das transações. Nos casos onde a autorização é direta, não há limitação; mas nos casos onde é necessário a autenticação ou qualquer tipo de redirecionamento do usuário, o desenvolvedor deverá utilizar o SDK para gerar o pagamento e, com o link retornado pela Cielo, providenciar o redirecionamento do usuário.
 
 ## Utilizando o SDK
-
 Para criar um pagamento simples com cartão de crédito com o SDK, basta fazer:
 
+## Instalação
+O API-3.0 Python Cielo pode ser facilmente instalado com o comando a seguir:
+```bash
+pip install cieloApi3
+```
+
+## Exemplos
 ### Criando um pagamento com cartão de crédito
 
 ```python
-import json
-
 from cieloApi3 import *
+
+import json
 
 # Configure o ambiente
 environment = Environment(sandbox=True)
@@ -77,7 +83,6 @@ response_cancel_sale = cielo_ecommerce.cancel_sale(payment_id, 15700)
 print '---------------------response_cancel_sale---------------------'
 print json.dumps(response_cancel_sale, indent=2)
 print '---------------------response_cancel_sale---------------------'
-
 ```
 
 ## Manual
