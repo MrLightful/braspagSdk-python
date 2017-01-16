@@ -31,4 +31,28 @@ print json.dumps(response_create_card_token, indent=2)
 print '----------------------response_create_card_token----------------------'
 
 # Com o cartão gerado token na Cielo, já temos o Token do cartão para uma futura cobrança
-print 'New Card Token:', credit_card.card_token
+new_card_token = credit_card.card_token
+print 'New Card Token:', new_card_token
+
+# Crie uma instância de Sale informando o ID do pagamento
+sale = Sale('456')
+
+# Crie uma instância de Customer informando o nome do cliente
+sale.customer = Customer('Comprador Teste')
+
+# Crie uma instância de Credit Card utilizando os dados de teste via token
+credit_card_token = CreditCard('123', 'Visa')
+credit_card_token.card_token = new_card_token
+
+# Crie uma instância de Payment informando o valor do pagamento
+sale.payment = Payment(100)
+sale.payment.credit_card = credit_card_token
+
+# Cria instância do controlador do ecommerce
+cielo_ecommerce = CieloEcommerce(merchant, environment)
+
+# Criar a venda e imprime o retorno
+response_create_sale = cielo_ecommerce.create_sale(sale)
+print '----------------------response_create_sale----------------------'
+print json.dumps(response_create_sale, indent=2)
+print '----------------------response_create_sale----------------------'
