@@ -1,5 +1,8 @@
 #-*- coding: utf-8 -*-s
 
+import sys
+sys.path.insert(0, "./")
+
 import json
 
 from cielo.api30 import *
@@ -27,9 +30,7 @@ credit_card.holder = 'Fulano de Tal'
 sale.payment = Payment(15700)
 sale.payment.credit_card = credit_card
 
-# Crie o pagamento na Cielo
-# try:
-
+# Cria instância do controlador do ecommerce
 cielo_ecommerce = CieloEcommerce(merchant, environment)
 
 # Criar a venda e imprime o retorno

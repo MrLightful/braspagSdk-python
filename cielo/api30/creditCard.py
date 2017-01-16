@@ -1,5 +1,7 @@
 
-class CreditCard(object):
+from .objectJSON import ObjectJSON
+
+class CreditCard(ObjectJSON):
 
     def __init__(self, security_code, brand):
 
@@ -10,3 +12,9 @@ class CreditCard(object):
         self.save_card = None
         self.brand = brand
         self.card_token = None
+        self.customer_name = None
+
+
+    def update_return(self, response_return):
+
+        self.card_token = response_return['CardToken']
