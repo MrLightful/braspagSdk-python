@@ -48,6 +48,14 @@ class Payment(ObjectJSON):
         self.digitable_line = None
         self.address = None
 
+        #Boleto
+        self.boleto_number = None
+        self.assignor = None
+        self.demonstrative = None
+        self.identification = None
+        self.instructions = None
+
+
     def prepare(self):
 
         if self.credit_card:
