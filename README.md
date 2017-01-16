@@ -1,6 +1,6 @@
-# API-3.0-PHP
+# API-3.0-Python
 
-SDK API-3.0 PHP
+SDK API-3.0 Python Cielo
 
 ## Principais recursos
 
