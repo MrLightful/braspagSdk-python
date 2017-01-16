@@ -73,7 +73,13 @@ print '---------------------response_cancel_sale---------------------'
 recurrent_payment_id = sale.payment.recurrent_payment.recurrent_payment_id
 
 # Consulta informações da venda recorrente
-response_recurrent_payment_id = cielo_ecommerce.get_recurrent_payment(recurrent_payment_id)
-print '---------------------response_recurrent_payment_id---------------------'
-print json.dumps(response_recurrent_payment_id, indent=2)
-print '---------------------response_recurrent_payment_id---------------------'
+response_get_recurrent_payment = cielo_ecommerce.get_recurrent_payment(recurrent_payment_id)
+print '---------------------response_get_recurrent_payment---------------------'
+print json.dumps(response_get_recurrent_payment, indent=2)
+print '---------------------response_get_recurrent_payment---------------------'
+
+# # Desativa uma venda recorrente (Algum erro na API da Cielo, parou de funcionar)
+# response_deactivate_recurrent_payment = cielo_ecommerce.deactivate_recurrent_payment(recurrent_payment_id)
+# print '---------------------response_deactivate_recurrent_payment---------------------'
+# print json.dumps(response_deactivate_recurrent_payment, indent=2)
+# print '---------------------response_deactivate_recurrent_payment---------------------'

@@ -35,16 +35,21 @@ class Base(object):
 
         response = s.send(prep)
 
-        answers = response.json()
+        if 'json' in response.headers['Content-Type'].lower():
+            answers = response.json()
+        else:
+            answers = [{
+                'Code': str(response.status_code),
+                'Message': response.text
+            }]
 
         if response.status_code >= 400:
-
             errors = []
 
             for answer in answers:
                 errors.append('\r\n * [%s] %s\r\n' % (answer['Code'], answer['Message']))
 
-            data_send = json.loads(body)
+            data_send = json.loads(body or 'null')
 
             raise Exception, '\r\n%s\r\nMethod: %s\r\nUri: %s\r\nData: %s' % (''.join(errors), method, response.url, json.dumps(data_send, indent=2))
 

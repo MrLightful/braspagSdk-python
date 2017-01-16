@@ -4,6 +4,7 @@ from .request.querySale import QuerySale
 from .request.updateSale import UpdateSale
 from .request.createCardToken import CreateCardToken
 from .request.queryRecorrency import QueryRecorrency
+from .request.deactivateRecorrency import DeactivateRecorrency
 
 class CieloEcommerce(object):
 
@@ -49,4 +50,12 @@ class CieloEcommerce(object):
         request = QueryRecorrency(self.merchant, self.environment)
 
         return request.execute(recurrent_payment_id)
+
+    def deactivate_recurrent_payment(self, recurrent_payment_id):
+
+        request = DeactivateRecorrency(self.merchant, self.environment)
+
+        return request.execute(recurrent_payment_id)
+
+
 
