@@ -13,4 +13,8 @@ class CreateSale(Base):
 
         uri = '%s1/sales' % self.environment.api
 
-        return self.send_request("POST", uri, sale)
+        response = self.send_request("POST", uri, sale)
+
+        sale.update_return(response)
+
+        return response

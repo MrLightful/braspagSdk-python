@@ -44,6 +44,8 @@ class Base(object):
             for answer in answers:
                 errors.append('\r\n * [%s] %s\r\n' % (answer['Code'], answer['Message']))
 
-            raise Exception, '\r\n%s\r\nMethod: %s\r\nUri: %s\r\nData: %s' % (''.join(errors), method, response.url, json.dumps(body, indent=2))
+            data_send = json.loads(body)
+
+            raise Exception, '\r\n%s\r\nMethod: %s\r\nUri: %s\r\nData: %s' % (''.join(errors), method, response.url, json.dumps(data_send, indent=2))
 
         return answers
