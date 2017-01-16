@@ -27,7 +27,7 @@ Para criar um pagamento simples com cartão de crédito com o SDK, basta fazer:
 ```python
 import json
 
-from cielo.api30 import *
+from cieloApi3 import *
 
 # Configure o ambiente
 environment = Environment(sandbox=True)
