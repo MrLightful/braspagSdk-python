@@ -83,3 +83,9 @@ print '---------------------response_get_recurrent_payment---------------------'
 # print '---------------------response_deactivate_recurrent_payment---------------------'
 # print json.dumps(response_deactivate_recurrent_payment, indent=2)
 # print '---------------------response_deactivate_recurrent_payment---------------------'
+
+# # Reativa uma venda recorrente (Algum erro na API da Cielo, parou de funcionar)
+# response_reactivate_recurrent_payment = cielo_ecommerce.reactivate_recurrent_payment(recurrent_payment_id)
+# print '---------------------response_reactivate_recurrent_payment---------------------'
+# print json.dumps(response_reactivate_recurrent_payment, indent=2)
+# print '---------------------response_reactivate_recurrent_payment---------------------'
