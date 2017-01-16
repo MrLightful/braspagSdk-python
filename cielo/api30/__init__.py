@@ -1,11 +1,11 @@
-from .environment import Environment
-from .merchant import Merchant
+from .environment import *
+from .merchant import *
 
-from .sale import Sale
-from .customer import Customer
-from .creditCard import CreditCard
-from .payment import Payment
+from .sale import *
+from .customer import *
+from .creditCard import *
+from .payment import *
 
 from .recurrentPayment import *
 
-from .cieloEcommerce import CieloEcommerce
+from .cieloEcommerce import *

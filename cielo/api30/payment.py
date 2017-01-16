@@ -51,4 +51,4 @@ class Payment(ObjectJSON):
     def prepare(self):
 
         if self.credit_card:
-            self.type = 'CreditCard'
+            self.type = PAYMENTTYPE_CREDITCARD
