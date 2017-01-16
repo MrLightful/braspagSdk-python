@@ -11,4 +11,4 @@ class Sale(ObjectJSON):
 
     def update_return(self, response_return):
 
-        self.payment.payment_id = response_return['Payment']['PaymentId']
+        self.payment.payment_id = response_return['Payment'].get('PaymentId')
