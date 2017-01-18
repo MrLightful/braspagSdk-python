@@ -2,8 +2,10 @@
 
 SDK API-3.0 Python Cielo
 
-Índice
+Índice:
+
 [Principais recursos](#principais-recursos)
+[Limitações](#limitacoes)
 
 ## Principais recursos
 
