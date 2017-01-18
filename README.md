@@ -4,8 +4,11 @@ SDK API-3.0 Python Cielo
 
 Índice:
 
-[Principais recursos](#principais-recursos)
-[Limitações](#limitacoes)
+* [Principais recursos](#principais-recursos)
+* [Limitações](#limitações)
+* [Exemplos](#exemplos)
+    * [Criando um pagamento com cartão de crédito](#criando-um-pagamento-com-cartão-de-crédito)
+* [Manual Oficial da Cielo](#manual-oficial-da-cielo)
 
 ## Principais recursos
 
@@ -90,6 +93,6 @@ print json.dumps(response_cancel_sale, indent=2)
 print '---------------------response_cancel_sale---------------------'
 ```
 
-## Manual
+## Manual Oficial da Cielo
 
 Para mais informações sobre a integração com a API 3.0 da Cielo, vide o manual em: [Integração API 3.0](https://developercielo.github.io/Webservice-3.0/)
