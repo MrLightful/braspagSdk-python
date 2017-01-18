@@ -2,6 +2,9 @@
 
 SDK API-3.0 Python Cielo
 
+Índice
+[Principais recursos](#principais-recursos)
+
 ## Principais recursos
 
 * [x] Pagamentos por cartão de crédito.
