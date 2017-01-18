@@ -277,7 +277,7 @@ print json.dumps(response_create_sale, indent=2)
 print '----------------------response_create_sale----------------------'
 ```
 
-### Gerando um boleto simples](#gerando-um-boleto-simples)
+### Gerando um boleto simples
 ```python
 from cieloApi3 import *
 
@@ -323,7 +323,7 @@ print '----------------------response_get_sale----------------------'
 print '\r\nLink Boleto:', sale.payment.url, '\r\n'
 ```
 
-### Gerando um boleto completo](#gerando-um-boleto-completo)
+### Gerando um boleto completo
 ```python
 from cieloApi3 import *
 
