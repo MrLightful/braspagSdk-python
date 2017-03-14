@@ -1,5 +1,6 @@
 import uuid, json
 
+from future.utils import raise_with_traceback
 from requests import Request, Session
 
 class Base(object):
@@ -51,6 +52,6 @@ class Base(object):
 
             data_send = json.loads(body or 'null')
 
-            raise Exception, '\r\n%s\r\nMethod: %s\r\nUri: %s\r\nData: %s' % (''.join(errors), method, response.url, json.dumps(data_send, indent=2))
+            raise_with_traceback(Exception('\r\n%s\r\nMethod: %s\r\nUri: %s\r\nData: %s' % (''.join(errors), method, response.url, json.dumps(data_send, indent=2))))
 
         return answers
