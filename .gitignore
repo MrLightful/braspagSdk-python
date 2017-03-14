@@ -89,3 +89,5 @@ ENV/
 .ropeproject
 
 example/teste.py
+
+.idea/*

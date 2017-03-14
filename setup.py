@@ -26,7 +26,7 @@ settings.update(
     url='https://github.com/thiago-Malaca/API-3.0-Python',
     keywords='api3.0 cielo python sdk ecommerce',
     packages=find_packages(),
-    install_requires=['requests'],
+    install_requires=['requests', 'future'],
     license='MIT',
     classifiers=(
         # 'Development Status :: 5 - Production/Stable',
@@ -37,6 +37,8 @@ settings.update(
         # 'Programming Language :: Python :: 2.5',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
     )
 )
 
