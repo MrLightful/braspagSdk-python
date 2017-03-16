@@ -1,5 +1,7 @@
 
 import json
+from future.utils import integer_types
+
 
 class ObjectJSON(object):
 
@@ -58,7 +60,8 @@ def remove_none_dict(obj):
     retorno = {}
     for chave in obj:
         valor = obj[chave]
-        if valor or isinstance(valor, (int, long, float, complex)):
+        types = integer_types + (float, complex)
+        if valor or isinstance(valor, types):
             retorno[chave] = remove_none(valor)
 
     return retorno
