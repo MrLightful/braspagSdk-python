@@ -48,12 +48,16 @@ class Payment(ObjectJSON):
         self.digitable_line = None
         self.address = None
 
-        #Boleto
+        # Boleto
         self.boleto_number = None
         self.assignor = None
         self.demonstrative = None
         self.identification = None
         self.instructions = None
+
+        # Split de Pagamentos - Pagador Braspag
+        self.do_split = None
+        self.split_payments = None
 
 
     def prepare(self):
