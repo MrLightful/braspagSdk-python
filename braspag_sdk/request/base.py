@@ -1,13 +1,14 @@
-import uuid, json
+import json
+import uuid
 
 from future.utils import raise_with_traceback
 from requests import Request, Session
 
+
 class Base(object):
 
-    def __init__(self, merchant):
-
-        self.merchant = merchant
+    def __init__(self, authorization_headers):
+        self.authorization_headers = authorization_headers
 
     def send_request(self, method, uri, data=None, params=None):
 
@@ -16,10 +17,9 @@ class Base(object):
         body = data
 
         headers = {
-            'User-Agent': "CieloEcommerce/3.0 Python SDK",
+            'User-Agent': "BraspagSdk/Python",
             'RequestId': str(uuid.uuid4()),
-            'MerchantId': self.merchant.id,
-            'MerchantKey': self.merchant.key
+            **(self.authorization_headers or {}),
         }
 
         if not body:
@@ -55,3 +55,22 @@ class Base(object):
             raise_with_traceback(Exception('\r\n%s\r\nMethod: %s\r\nUri: %s\r\nData: %s' % (''.join(errors), method, response.url, json.dumps(data_send, indent=2))))
 
         return answers
+
+
+class ApiBase(Base):
+
+    def __init__(self, credentials):
+        authorization_headers = {
+            'MerchantId': credentials.merchant_id,
+            'MerchantKey': credentials.merchant_key,
+        }
+        super().__init__(authorization_headers=authorization_headers)
+
+
+class ApiOauthBase(Base):
+
+    def __init__(self, access_token):
+        authorization_headers = {
+            'Authorization': 'Bearer ' + access_token,
+        }
+        super().__init__(authorization_headers=authorization_headers)

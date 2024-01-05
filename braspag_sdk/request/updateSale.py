@@ -1,7 +1,7 @@
+from .base import ApiBase
 
-from .base import Base
 
-class UpdateSale(Base):
+class UpdateSale(ApiBase):
 
     def __init__(self, type, merchant, environment):
 
