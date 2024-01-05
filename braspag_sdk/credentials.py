@@ -1,4 +1,4 @@
-class BraspagCredentials(object):
+class Credentials(object):
 
     def __init__(self, merchant_id, merchant_key, client_id=None, client_secret=None):
         self.merchant_id = merchant_id
