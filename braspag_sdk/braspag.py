@@ -28,21 +28,21 @@ class Braspag(object):
     def split(self) -> BraspagSplitServices:
         if not self._split:
             raise Exception("Split app is not initialized, "
-                            "please define SplitCredentials and call init() method first")
+                            "please add it to Braspag instance using add_split() method")
         return self._split
 
     @property
     def emv3ds(self) -> BraspagEMV3DSServices:
         if not self._emv3ds:
             raise Exception("EMV3DS app is not initialized, "
-                            "please define EMV3DSCredentials and call init() method first")
+                            "please add it to Braspag instance using add_emv3ds() method")
         return self._emv3ds
 
     @property
     def sop(self) -> BraspagSOPServices:
         if not self._sop:
             raise Exception("SOP app is not initialized, "
-                            "please define SilentOrderPostCredentials and call init() method first")
+                            "please add it to Braspag instance using add_sop() method")
         return self._sop
 
     def add_split(self, split_credentials: SplitCredentials):
