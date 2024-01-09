@@ -1,5 +1,5 @@
+from braspag_sdk.utils import ObjectJSON
 
-from .objectJSON import ObjectJSON
 
 class CreditCard(ObjectJSON):
 

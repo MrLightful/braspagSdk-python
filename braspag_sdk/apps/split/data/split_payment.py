@@ -1,4 +1,4 @@
-from .objectJSON import ObjectJSON
+from braspag_sdk.utils import ObjectJSON
 
 
 class SplitPaymentFares(ObjectJSON):

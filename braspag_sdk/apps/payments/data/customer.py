@@ -1,4 +1,3 @@
-
 class Customer(object):
 
     def __init__(self, name):

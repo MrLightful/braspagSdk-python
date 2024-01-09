@@ -1,4 +1,4 @@
-from .base import ApiBase
+from braspag_sdk.utils import ApiBase
 
 
 class UpdateSale(ApiBase):
@@ -14,7 +14,7 @@ class UpdateSale(ApiBase):
 
     def execute(self, payment_id):
 
-        uri = '%s1/sales/%s/%s' % (self.environment.api, payment_id, self.type)
+        uri = '%s/sales/%s/%s' % (self.environment.api, payment_id, self.type)
 
         params = {}
 

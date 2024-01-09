@@ -1,9 +1,8 @@
 class Environment(object):
 
-    def __init__(self, sandbox):
+    def __init__(self, is_sandbox: bool):
 
-        # Production
-        if not sandbox:
+        if is_sandbox:
             self.api = 'https://apisandbox.braspag.com.br'
             self.oauth2_api = 'https://authsandbox.braspag.com.br'
             self.query_api = 'https://apiquerysandbox.braspag.com.br'

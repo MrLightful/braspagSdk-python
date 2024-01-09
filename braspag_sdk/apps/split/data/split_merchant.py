@@ -1,14 +1,14 @@
-from braspag_sdk import ObjectJSON
+from braspag_sdk.utils import ObjectJSON
 
 
 class SplitMerchantAddress(ObjectJSON):
-    def __init__(self, *, street: str, number: str, complement: str, neighborhood: str, postcode: str, city: str,
+    def __init__(self, *, street: str, number: str, complement: str, neighborhood: str, zip_code: str, city: str,
                  state: str):
         self.street = street
         self.number = number
         self.complement = complement
         self.neighborhood = neighborhood
-        self.postcode = postcode
+        self.zip_code = zip_code
         self.city = city
         self.state = state
 

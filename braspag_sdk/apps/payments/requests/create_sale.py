@@ -1,4 +1,4 @@
-from .base import ApiBase
+from braspag_sdk.utils import ApiBase
 
 
 class CreateSale(ApiBase):
@@ -11,7 +11,7 @@ class CreateSale(ApiBase):
 
     def execute(self, sale):
 
-        uri = '%s1/sales' % self.environment.api
+        uri = '%s/sales' % self.environment.api
 
         response = self.send_request("POST", uri, sale)
 

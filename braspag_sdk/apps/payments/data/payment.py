@@ -1,5 +1,4 @@
-
-from .objectJSON import ObjectJSON
+from braspag_sdk.utils import ObjectJSON
 
 PAYMENTTYPE_CREDITCARD = "CreditCard"
 PAYMENTTYPE_DEBITCARD = "DebitCard"
@@ -9,6 +8,7 @@ PAYMENTTYPE_BOLETO = "Boleto"
 PROVIDER_BRADESCO = "Bradesco"
 PROVIDER_BANCO_DO_BRASIL = "BancoDoBrasil"
 PROVIDER_SIMULADO = "Simulado"
+
 
 class Payment(ObjectJSON):
 
@@ -58,7 +58,6 @@ class Payment(ObjectJSON):
         # Split de Pagamentos - Pagador Braspag
         self.do_split = None
         self.split_payments = None
-
 
     def prepare(self):
 

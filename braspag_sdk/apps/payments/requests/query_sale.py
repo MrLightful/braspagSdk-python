@@ -1,4 +1,4 @@
-from .base import ApiBase
+from braspag_sdk.utils import ApiBase
 
 
 class QuerySale(ApiBase):
@@ -11,6 +11,6 @@ class QuerySale(ApiBase):
 
     def execute(self, payment_id):
 
-        uri = '%s1/sales/%s' % (self.environment.query_api, payment_id)
+        uri = '%s/sales/%s' % (self.environment.query_api, payment_id)
 
         return self.send_request("GET", uri)

@@ -24,11 +24,11 @@ class Base(object):
 
         if not body:
             headers['Content-Length'] = '0'
-        else:
-            headers["Content-Type"] = "application/json"
+        elif not isinstance(data, dict):
+            body = body.toJSON()
 
-            if not isinstance(data, dict):
-                body = body.toJSON()
+        if 'Content-Type' not in headers:
+            headers["Content-Type"] = "application/json"
 
         req = Request(method, uri, data=body, headers=headers, params=params)
 
@@ -45,14 +45,10 @@ class Base(object):
             }]
 
         if response.status_code >= 400:
-            errors = []
-
-            for answer in answers:
-                errors.append('\r\n * [%s] %s\r\n' % (answer['Code'], answer['Message']))
-
-            data_send = json.loads(body or 'null')
-
-            raise_with_traceback(Exception('\r\n%s\r\nMethod: %s\r\nUri: %s\r\nData: %s' % (''.join(errors), method, response.url, json.dumps(data_send, indent=2))))
+            data_send = body
+            if not isinstance(data_send, dict):
+                data_send = json.loads(data_send or 'null')
+            raise_with_traceback(Exception('\r\n%s\r\nMethod: %s\r\nUri: %s\r\nData: %s' % (response.content, method, response.url, json.dumps(data_send, indent=2))))
 
         return answers
 
