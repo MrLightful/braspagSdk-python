@@ -1,5 +1,6 @@
 from typing import Optional
 
+from .apps import BraspagEMV3DSServices
 from .credentials import MerchantCredentials, SplitCredentials, EMV3DSCredentials, SilentOrderPostCredentials
 from .apps.payments.services import BraspagPaymentsServices
 from .apps.split.services import BraspagSplitServices
@@ -28,9 +29,9 @@ class Braspag(object):
         if self.split_credentials:
             self._split = BraspagSplitServices(self._merchant_credentials, self.split_credentials, self._environment)
 
-        # if self.emv3ds_credentials:
-        #     self._split = BraspagEMV3DSApp(self.emv3ds_credentials, self._environment)
-        #
+        if self.emv3ds_credentials:
+            self._split = BraspagEMV3DSServices(self.emv3ds_credentials, self._environment)
+
         # if self.sop_credentials:
         #     self._split = BraspagSOPApp(self.sop_credentials, self._environment)
 
@@ -45,13 +46,13 @@ class Braspag(object):
                             "please define SplitCredentials and call init() method first")
         return self._split
 
-    # @property
-    # def emv3ds(self) -> BraspagEMV3DSServices:
-    #     if not self._emv3ds:
-    #         raise Exception("EMV3DS app is not initialized, "
-    #                         "please define EMV3DSCredentials and call init() method first")
-    #     return self._emv3ds
-    #
+    @property
+    def emv3ds(self) -> BraspagEMV3DSServices:
+        if not self._emv3ds:
+            raise Exception("EMV3DS app is not initialized, "
+                            "please define EMV3DSCredentials and call init() method first")
+        return self._emv3ds
+
     # @property
     # def sop(self) -> BraspagSOPServices:
     #     if not self._sop:
