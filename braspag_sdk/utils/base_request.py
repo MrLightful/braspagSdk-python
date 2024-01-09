@@ -57,7 +57,7 @@ class ApiBase(Base):
 
     def __init__(self, credentials):
         authorization_headers = {
-            'MerchantId': credentials.merchant_id,
+            'MerchantId': credentials._merchant_id,
             'MerchantKey': credentials.merchant_key,
         }
         super().__init__(authorization_headers=authorization_headers)

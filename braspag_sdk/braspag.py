@@ -1,5 +1,5 @@
-from .apps import BraspagEMV3DSServices, BraspagPaymentsServices, BraspagSplitServices, \
-                  MerchantCredentials, EMV3DSCredentials, SplitCredentials
+from .apps import BraspagEMV3DSServices, BraspagPaymentsServices, BraspagSplitServices, BraspagSOPServices, \
+                  MerchantCredentials, EMV3DSCredentials, SplitCredentials, SilentOrderPostCredentials
 
 
 class Braspag(object):
@@ -38,12 +38,12 @@ class Braspag(object):
                             "please define EMV3DSCredentials and call init() method first")
         return self._emv3ds
 
-    # @property
-    # def sop(self) -> BraspagSOPServices:
-    #     if not self._sop:
-    #         raise Exception("SOP app is not initialized, "
-    #                         "please define SilentOrderPostCredentials and call init() method first")
-    #     return self._sop
+    @property
+    def sop(self) -> BraspagSOPServices:
+        if not self._sop:
+            raise Exception("SOP app is not initialized, "
+                            "please define SilentOrderPostCredentials and call init() method first")
+        return self._sop
 
     def add_split(self, split_credentials: SplitCredentials):
         """
@@ -59,5 +59,9 @@ class Braspag(object):
         """
         self._emv3ds = BraspagEMV3DSServices(emv3ds_credentials, self._is_sandbox)
 
-    # def add_sop(self, sop_credentials: SilentOrderPostCredentials):
-    #     self._sop = BraspagSOPServices(sop_credentials, self._is_sandbox)
+    def add_sop(self, sop_credentials: SilentOrderPostCredentials):
+        """
+        Add app for Braspag's Silent Order Post.
+        Learn more: https://braspag.github.io//manualp/braspag-silent-order-post
+        """
+        self._sop = BraspagSOPServices(self._merchant_credentials.merchant_id, sop_credentials, self._is_sandbox)

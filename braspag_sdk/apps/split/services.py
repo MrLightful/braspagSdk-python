@@ -21,11 +21,11 @@ class BraspagSplitServices(object):
         self._merchant_credentials = merchant_credentials
         self._split_credentials = split_credentials
 
-        self._access_token = None
-        self._token_expires_at = None
+        self._oauth2_token = None
+        self._oauth2_expires_at = None
 
-    def _validate_access_token(self):
-        if self._token_expires_at is not None and self._token_expires_at > datetime.now():
+    def _validate_oauth2_token(self):
+        if self._oauth2_expires_at is not None and self._oauth2_expires_at > datetime.now():
             return
         request = Oauth2Token(
             merchant_id=self._merchant_credentials.merchant_id,
@@ -33,10 +33,10 @@ class BraspagSplitServices(object):
             environment=self._environment,
         )
         response = request.execute()
-        self._access_token = response['access_token']
-        self._token_expires_at = datetime.now() + timedelta(seconds=response['expires_in'])
+        self._oauth2_token = response['access_token']
+        self._oauth2_expires_at = datetime.now() + timedelta(seconds=response['expires_in'])
 
     def create_split_merchant(self, split_merchant: SplitMerchant):
-        self._validate_access_token()
-        request = CreateSplitMerchant(self._access_token, self._environment)
+        self._validate_oauth2_token()
+        request = CreateSplitMerchant(self._oauth2_token, self._environment)
         return request.execute(split_merchant)
