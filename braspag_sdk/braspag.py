@@ -1,7 +1,5 @@
-from typing import Optional
-
 from .apps import BraspagEMV3DSServices, BraspagPaymentsServices, BraspagSplitServices, \
-                  MerchantCredentials, EMV3DSCredentials, SplitCredentials, SilentOrderPostCredentials
+                  MerchantCredentials, EMV3DSCredentials, SplitCredentials
 
 
 class Braspag(object):

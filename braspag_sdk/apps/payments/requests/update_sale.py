@@ -1,5 +1,7 @@
-from braspag_sdk.apps.payments import MerchantCredentials, PaymentsEnvironment
 from braspag_sdk.utils import ApiBase
+
+from braspag_sdk.apps.payments.environment import PaymentsEnvironment
+from braspag_sdk.apps.payments.data import MerchantCredentials
 
 
 class UpdateSale(ApiBase):

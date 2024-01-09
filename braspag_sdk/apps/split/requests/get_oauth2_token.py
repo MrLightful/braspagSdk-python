@@ -1,7 +1,8 @@
 import base64
 
-from braspag_sdk.apps.split import SplitEnvironment
 from braspag_sdk.utils import Base
+
+from braspag_sdk.apps.split.environment import SplitEnvironment
 
 
 class Oauth2Token(Base):

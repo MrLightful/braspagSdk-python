@@ -1,5 +1,6 @@
-from braspag_sdk.apps.split import SplitEnvironment
 from braspag_sdk.utils import ApiOauthBase
+
+from braspag_sdk.apps.split.environment import SplitEnvironment
 
 
 class CreateSplitMerchant(ApiOauthBase):

@@ -1,5 +1,4 @@
 from .braspag import *
-from .credentials import *
 
 from .apps.payments.data import *
 from .apps.split.data import *

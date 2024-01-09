@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 
 from braspag_sdk.apps.payments.data import MerchantCredentials
-from .environment import SplitEnvironment
 from .data import *
 from .requests import *
 
