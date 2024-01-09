@@ -33,6 +33,10 @@ class Braspag(object):
         #     self._split = BraspagSOPApp(self.sop_credentials, self._is_sandbox)
 
     @property
+    def is_sandbox(self) -> bool:
+        return self._is_sandbox
+
+    @property
     def payments(self) -> BraspagPaymentsServices:
         return self._payments
 
