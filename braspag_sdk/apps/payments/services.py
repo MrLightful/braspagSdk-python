@@ -1,15 +1,16 @@
-from braspag_sdk.credentials import MerchantCredentials
-from braspag_sdk.utils import Environment
-from .data.sale import Sale
-from .requests.create_sale import CreateSale
-from .requests.query_sale import QuerySale
-from .requests.update_sale import UpdateSale
+from .environment import PaymentsEnvironment
+from .data import *
+from .requests import *
 
 
 class BraspagPaymentsServices(object):
+    """
+    App for Braspag's Payments.
+    Learn more: https://braspag.github.io//manual/braspag-pagador
+    """
 
-    def __init__(self, merchant_credentials: MerchantCredentials, environment: Environment):
-        self._environment = environment
+    def __init__(self, merchant_credentials: MerchantCredentials, is_sandbox: bool):
+        self._environment = PaymentsEnvironment(is_sandbox)
         self.merchant_credentials = merchant_credentials
 
     def create_sale(self, sale: Sale):

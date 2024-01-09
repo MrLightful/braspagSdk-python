@@ -1,12 +1,13 @@
 import base64
 
-from braspag_sdk.credentials import EMV3DSCredentials
-from braspag_sdk.utils import Base, Environment
+from braspag_sdk.utils import Base
+from braspag_sdk.apps.emv3ds.data.credentials import EMV3DSCredentials
+from braspag_sdk.apps.emv3ds.environment import EMV3DSEnvironment
 
 
 class AccessToken(Base):
 
-    def __init__(self, *, emv3ds_credentials: EMV3DSCredentials, environment: Environment):
+    def __init__(self, *, emv3ds_credentials: EMV3DSCredentials, environment: EMV3DSEnvironment):
         cred = (emv3ds_credentials.client_id + ':' + emv3ds_credentials.client_secret).encode('utf-8')
         cred_base64 = base64.b64encode(cred).decode('utf-8')
         authorization_headers = {

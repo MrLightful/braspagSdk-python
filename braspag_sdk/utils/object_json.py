@@ -1,4 +1,3 @@
-
 import json
 from future.utils import integer_types
 

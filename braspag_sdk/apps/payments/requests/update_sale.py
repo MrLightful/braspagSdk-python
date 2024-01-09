@@ -1,11 +1,12 @@
+from braspag_sdk.apps.payments import MerchantCredentials, PaymentsEnvironment
 from braspag_sdk.utils import ApiBase
 
 
 class UpdateSale(ApiBase):
 
-    def __init__(self, type, merchant, environment):
+    def __init__(self, type: str, merchant_credentials: MerchantCredentials, environment: PaymentsEnvironment):
 
-        super(UpdateSale, self).__init__(merchant)
+        super(UpdateSale, self).__init__(merchant_credentials)
 
         self.environment = environment
         self.type = type
