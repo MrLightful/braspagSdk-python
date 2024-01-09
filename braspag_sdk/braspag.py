@@ -11,26 +11,12 @@ class Braspag(object):
         # Creds & config
         self._is_sandbox = is_sandbox
         self._merchant_credentials = merchant_credentials
-        self.split_credentials: Optional[SplitCredentials] = None
-        self.emv3ds_credentials: Optional[EMV3DSCredentials] = None
-        self.sop_credentials: Optional[SilentOrderPostCredentials] = None
 
         # Apps
         self._payments = BraspagPaymentsServices(self._merchant_credentials, self._is_sandbox)
         self._split = None
         self._emv3ds = None
         self._sop = None
-
-    def init(self):
-
-        if self.split_credentials:
-            self._split = BraspagSplitServices(self._merchant_credentials, self.split_credentials, self._is_sandbox)
-
-        if self.emv3ds_credentials:
-            self._split = BraspagEMV3DSServices(self.emv3ds_credentials, self._is_sandbox)
-
-        # if self.sop_credentials:
-        #     self._split = BraspagSOPApp(self.sop_credentials, self._is_sandbox)
 
     @property
     def is_sandbox(self) -> bool:
@@ -60,3 +46,20 @@ class Braspag(object):
     #         raise Exception("SOP app is not initialized, "
     #                         "please define SilentOrderPostCredentials and call init() method first")
     #     return self._sop
+
+    def add_split(self, split_credentials: SplitCredentials):
+        """
+        Add app for Braspag's Split Payments.
+        Learn more: https://braspag.github.io//manual/split-de-pagamentos-pagador
+        """
+        self._split = BraspagSplitServices(self._merchant_credentials, split_credentials, self._is_sandbox)
+
+    def add_emv3ds(self, emv3ds_credentials: EMV3DSCredentials):
+        """
+        Add app for Braspag's EMV3DS.
+        Learn more: https://braspag.github.io//manual/emv3ds
+        """
+        self._emv3ds = BraspagEMV3DSServices(emv3ds_credentials, self._is_sandbox)
+
+    # def add_sop(self, sop_credentials: SilentOrderPostCredentials):
+    #     self._sop = BraspagSOPServices(sop_credentials, self._is_sandbox)
