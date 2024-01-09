@@ -1,3 +1,4 @@
+from .credentials import *
 from .payment import *
 from .sale import *
 from .credit_card import *

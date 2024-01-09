@@ -1,9 +1,7 @@
 from typing import Optional
 
-from .apps import BraspagEMV3DSServices
-from .credentials import MerchantCredentials, SplitCredentials, EMV3DSCredentials, SilentOrderPostCredentials
-from .apps.payments.services import BraspagPaymentsServices
-from .apps.split.services import BraspagSplitServices
+from .apps import BraspagEMV3DSServices, BraspagPaymentsServices, BraspagSplitServices, \
+                  MerchantCredentials, EMV3DSCredentials, SplitCredentials, SilentOrderPostCredentials
 from .utils.environment import Environment
 
 
