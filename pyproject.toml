@@ -4,7 +4,6 @@ version = "0.0.1"
 description = ""
 authors = [
     "Roman Sirokov <sirokov@dizconto.com>",
-    "Thiago Malaquias <thiago.malaca@gmail.com>"
 ]
 homepage = "https://github.com/romatallinn/braspagSdk-python"
 repository = "https://github.com/romatallinn/braspagSdk-python"
