@@ -8,7 +8,7 @@ authors = [
 homepage = "https://github.com/romatallinn/braspagSdk-python"
 repository = "https://github.com/romatallinn/braspagSdk-python"
 readme = "README.md"
-keywords = ["braspag", "sdk", "python", "cielo", "api", "ecommerce", "brazil"]
+keywords = ["braspag", "sdk", "python", "cielo", "api", "ecommerce", "brazil", "payments"]
 packages = [{include = "braspag_sdk"}]
 classifiers = [
     'Development Status :: 3 - Alpha',

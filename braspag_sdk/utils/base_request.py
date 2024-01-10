@@ -1,13 +1,16 @@
 import json
 import uuid
+from typing import Dict
 
 from future.utils import raise_with_traceback
 from requests import Request, Session
 
+from braspag_sdk.apps.payments.data import MerchantCredentials
+
 
 class Base(object):
 
-    def __init__(self, authorization_headers):
+    def __init__(self, authorization_headers: Dict):
         self.authorization_headers = authorization_headers
 
     def send_request(self, method, uri, data=None, params=None):
@@ -55,9 +58,9 @@ class Base(object):
 
 class ApiBase(Base):
 
-    def __init__(self, credentials):
+    def __init__(self, credentials: MerchantCredentials):
         authorization_headers = {
-            'MerchantId': credentials._merchant_id,
+            'MerchantId': credentials.merchant_id,
             'MerchantKey': credentials.merchant_key,
         }
         super().__init__(authorization_headers=authorization_headers)
@@ -65,7 +68,7 @@ class ApiBase(Base):
 
 class ApiOauthBase(Base):
 
-    def __init__(self, access_token):
+    def __init__(self, access_token: str):
         authorization_headers = {
             'Authorization': 'Bearer ' + access_token,
         }
