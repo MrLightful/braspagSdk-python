@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "braspag-sdk"
-version = "0.0.1"
+version = "0.0.2"
 description = ""
 authors = [
     "Roman Sirokov <sirokov@dizconto.com>",
