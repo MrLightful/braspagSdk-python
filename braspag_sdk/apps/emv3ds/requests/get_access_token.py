@@ -17,13 +17,13 @@ class AccessToken(Base):
         super().__init__(authorization_headers=authorization_headers)
         self._environment = environment
 
-    def execute(self):
+    def execute(self, establishment_code: str, merchant_name: str, mcc: str):
 
         uri = '%s/v2/auth/token' % self._environment.mpi
         data = {
-             "EstablishmentCode": "1006993069",
-             "MerchantName": "Loja Exemplo Ltda",
-             "MCC": "5912"
+             "EstablishmentCode": establishment_code,
+             "MerchantName": merchant_name,
+             "MCC": mcc,
         }
 
         response = self.send_request("POST", uri, data=data)

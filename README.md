@@ -184,7 +184,10 @@ braspagSdk.payments.cancel_sale(payment_id, amount=...)
 
 # Generate access token for EMV 3DS.
 # Learn more: https://braspag.github.io//manual/emv3ds#1.-criando-o-token-de-acesso
-braspagSdk.emv3ds.get_access_token()
+establishment_code = ...
+merchant_name = ...
+mcc = ...
+braspagSdk.emv3ds.get_access_token(establishment_code, merchant_name, mcc)
 
 # Generate access token for Silent Order Post.
 # Learn more: https://braspag.github.io//manualp/braspag-silent-order-post#2.-obtendo-accesstoken-sop
