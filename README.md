@@ -1,5 +1,7 @@
 # Braspag SDK for Python
 [![PyPi page link -- version](https://img.shields.io/pypi/v/braspag-sdk.svg)](https://pypi.python.org/pypi/braspag-sdk)
+[![License](https://img.shields.io/github/license/romatallinn/braspagSdk-python)](LICENSE)
+
 
 An unofficial Python SDK for [Braspag](https://braspag.github.io/).
 

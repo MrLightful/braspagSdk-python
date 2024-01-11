@@ -51,7 +51,12 @@ class Base(object):
             data_send = body
             if not isinstance(data_send, dict):
                 data_send = json.loads(data_send or 'null')
-            raise_with_traceback(Exception('\r\n%s\r\nMethod: %s\r\nUri: %s\r\nData: %s' % (response.content, method, response.url, json.dumps(data_send, indent=2))))
+            raise_with_traceback(Exception(
+                '\r\n%s\r\n'
+                'Method: %s\r\n'
+                'Uri: %s\r\n'
+                'Data: %s' % (response.content, method, response.url, json.dumps(data_send, indent=2))
+            ))
 
         return answers
 

@@ -1,5 +1,3 @@
-from .environment import EMV3DSEnvironment
-from .data import *
 from .requests import *
 
 

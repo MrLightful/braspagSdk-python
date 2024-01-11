@@ -1,4 +1,3 @@
-from .environment import PaymentsEnvironment
 from .data import *
 from .requests import *
 

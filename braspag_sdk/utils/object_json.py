@@ -5,7 +5,6 @@ from future.utils import integer_types
 class ObjectJSON(object):
 
     def toJSON(self):
-
         dicionary = json.loads(json.dumps(self, default=lambda o: o.__dict__))
 
         dicionary = remove_none(dicionary)
@@ -18,7 +17,6 @@ class ObjectJSON(object):
         pass
 
     def __getattribute__(self, attribute):
-
         if attribute == '__dict__':
             self.prepare()
 
@@ -26,34 +24,35 @@ class ObjectJSON(object):
 
 
 def process_name_key(dictionary):
-
     if not isinstance(dictionary, dict):
         return dictionary
 
-    newDictionary = {}
+    new_dictionary = {}
 
     for key in dictionary:
-        newDictionary[capitalize_key(key)] = process_name_key(dictionary[key])
+        new_dictionary[capitalize_key(key)] = process_name_key(dictionary[key])
 
-    return newDictionary
+    return new_dictionary
+
 
 def capitalize_key(key):
     parts = key.split('_')
 
-    newParts = []
+    new_parts = []
     for part in parts:
-        newParts.append(part.capitalize())
+        new_parts.append(part.capitalize())
 
-    return ''.join(newParts)
+    return ''.join(new_parts)
+
 
 def remove_none(dado):
-
     if isinstance(dado, dict):
         return remove_none_dict(dado)
     elif isinstance(dado, list):
         return remove_none_list(dado)
 
     return dado
+
 
 def remove_none_dict(obj):
     retorno = {}
@@ -64,6 +63,7 @@ def remove_none_dict(obj):
             retorno[chave] = remove_none(valor)
 
     return retorno
+
 
 def remove_none_list(lista):
     resposta = []
