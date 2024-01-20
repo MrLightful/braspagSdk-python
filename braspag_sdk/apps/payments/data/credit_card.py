@@ -14,7 +14,6 @@ class CreditCard(ObjectJSON):
         self.card_token = None
         self.customer_name = None
 
-
     def update_return(self, response_return):
 
         self.card_token = response_return['CardToken']

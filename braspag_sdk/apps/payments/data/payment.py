@@ -12,7 +12,7 @@ PROVIDER_SIMULADO = "Simulado"
 
 class Payment(ObjectJSON):
 
-    def __init__(self, amount, installments = 1):
+    def __init__(self, amount, installments=1):
 
         self.amount = amount
         self.service_tax_amount = None
