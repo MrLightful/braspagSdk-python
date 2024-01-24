@@ -10,7 +10,7 @@ class SplitPaymentFares(ObjectJSON):
 
 class SplitPayment(ObjectJSON):
 
-    def __init__(self, subordinadate_merchant_id, amount, mdr=None, fee=None):
-        self.subordinadate_merchant_id = subordinadate_merchant_id
+    def __init__(self, subordinate_merchant_id, amount, mdr=None, fee=None):
+        self.subordinate_merchant_id = subordinate_merchant_id
         self.amount = amount
         self.fares = SplitPaymentFares(mdr, fee)
