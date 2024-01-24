@@ -39,7 +39,7 @@ class Base(object):
 
         response = s.send(prep)
 
-        if 'json' in response.headers['Content-Type'].lower():
+        if 'json' in response.headers.get('Content-Type', '').lower():
             answers = response.json()
         else:
             answers = [{
