@@ -17,7 +17,7 @@ class UpdateSale(ApiBase):
 
     def execute(self, payment_id):
 
-        uri = '%s/sales/%s/%s' % (self.environment.api, payment_id, self.type)
+        uri = '%s/v2/sales/%s/%s' % (self.environment.api, payment_id, self.type)
 
         params = {}
 
