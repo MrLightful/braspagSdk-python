@@ -6,6 +6,7 @@ class Address(object):
         self.street = None
         self.number = None
         self.complement = None
+        self.district = None
         self.zip_code = None
         self.city = None
         self.state = None
