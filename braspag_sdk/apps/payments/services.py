@@ -16,10 +16,11 @@ class BraspagPaymentsServices(object):
         request = CreateSale(self.merchant_credentials, self._environment)
         return request.execute(sale)
 
-    def capture_sale(self, payment_id: str, amount=None, service_tax_amount=None):
+    def capture_sale(self, payment_id: str, amount=None, service_tax_amount=None, split_payments=None):
         request = UpdateSale('capture', self.merchant_credentials, self._environment)
         request.amount = amount
         request.service_tax_amount = service_tax_amount
+        request.split_payments = split_payments
         return request.execute(payment_id)
 
     def cancel_sale(self, payment_id: str, amount=None):

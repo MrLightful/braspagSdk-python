@@ -14,17 +14,22 @@ class UpdateSale(ApiBase):
         self.type = type
         self.service_tax_amount = None
         self.amount = None
+        self.split_payments = None
 
     def execute(self, payment_id):
 
         uri = '%s/v2/sales/%s/%s' % (self.environment.api, payment_id, self.type)
 
         params = {}
+        data = {}
 
         if self.amount:
             params['amount'] = self.amount
 
         if self.service_tax_amount:
             params['serviceTaxAmount'] = self.service_tax_amount
+
+        if self.split_payments:
+            data['SplitPayments'] = [split.toJSON() for split in self.split_payments]
 
         return self.send_request('PUT', uri, params=params)
