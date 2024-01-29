@@ -27,7 +27,7 @@ class Base(object):
 
         if not body:
             headers['Content-Length'] = '0'
-        elif not isinstance(data, dict):
+        elif not isinstance(data, str):
             body = body.toJSON()
 
         if 'Content-Type' not in headers:
