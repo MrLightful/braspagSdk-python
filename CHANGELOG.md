@@ -1,3 +1,17 @@
+## 0.0.3
+
+The release contains multiple critical bug fixes and improvements.
+
+- Bump project development status classifier to 4 - Beta
+- Add description to project config
+- Add `Address.district`
+- Fix base request's response handler
+- Fix API endpoints in Payments module
+- Fix API formatting of lists in `ObjectJSON`
+- Fix typo in `SplitPayment.subordinate_merchant_id`
+- Add `SplitMerchant.birthday_date` and  `SplitMerchant.business_activity_id` as required for merchants registered by CPF document
+- Accept data via kwargs in payment's capture request (e.g., for split payment details)
+
 ## 0.0.2
 
 The release mostly meant to improve project & code quality.
