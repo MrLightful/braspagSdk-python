@@ -11,7 +11,7 @@ class CreateSale(ApiBase):
         self.environment = environment
 
     def execute(self, sale):
-        uri = '%s/sales' % self.environment.api
+        uri = '%s/v2/sales' % self.environment.api
         response = self.send_request("POST", uri, sale)
         sale.update_return(response)
         return response

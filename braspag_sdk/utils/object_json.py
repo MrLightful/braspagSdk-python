@@ -24,14 +24,22 @@ class ObjectJSON(object):
 
 
 def process_name_key(dictionary):
+
+    # If it's a list, process each item.
+    if isinstance(dictionary, list):
+        new_list = []
+        for item in dictionary:
+            new_list.append(process_name_key(item))
+        return new_list
+
+    # If it's not a dictionary (and not list), just return it as is.
     if not isinstance(dictionary, dict):
         return dictionary
 
+    # If it's a dictionary, process each key/value.
     new_dictionary = {}
-
     for key in dictionary:
         new_dictionary[capitalize_key(key)] = process_name_key(dictionary[key])
-
     return new_dictionary
 
 

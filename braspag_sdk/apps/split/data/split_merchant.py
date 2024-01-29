@@ -45,6 +45,8 @@ class SplitMerchant(ObjectJSON):
         self.corporate_name = None
         self.document_number = None
         self.document_type = None
+        self.birthday_date = None
+        self.business_activity_id = None
         self.address = None
         self.bank_account = None
         self.agreements = None
