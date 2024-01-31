@@ -1,3 +1,7 @@
+## 0.0.5
+
+Quickfix: fix circular import in `base_request.py` introduced in v0.0.4.
+
 ## 0.0.4
 
 This release contains a single, but critical bug fix to base request's body to json conversion for ObjectJSON instances. 
