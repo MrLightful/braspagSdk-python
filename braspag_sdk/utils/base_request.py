@@ -5,7 +5,7 @@ from typing import Dict
 from future.utils import raise_with_traceback
 from requests import Request, Session
 
-from braspag_sdk import ObjectJSON
+from braspag_sdk.utils.object_json import ObjectJSON
 from braspag_sdk.apps.payments.data import MerchantCredentials
 
 
