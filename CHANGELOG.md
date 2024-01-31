@@ -1,3 +1,7 @@
+## 0.0.4
+
+This release contains a single, but critical bug fix to base request's body to json conversion for ObjectJSON instances. 
+
 ## 0.0.3
 
 The release contains multiple critical bug fixes and improvements.
