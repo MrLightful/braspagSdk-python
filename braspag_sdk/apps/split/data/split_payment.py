@@ -1,3 +1,5 @@
+from typing import List
+
 from braspag_sdk.utils import ObjectJSON
 
 
@@ -14,3 +16,10 @@ class SplitPayment(ObjectJSON):
         self.subordinate_merchant_id = subordinate_merchant_id
         self.amount = amount
         self.fares = SplitPaymentFares(mdr, fee)
+
+
+class SplitPaymentsCapture(ObjectJSON):
+    """ Data model for when capturing payment with a split. """
+
+    def __init__(self, split_payments: List[SplitPayment]):
+        self.split_payments = split_payments
