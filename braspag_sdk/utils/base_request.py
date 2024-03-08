@@ -30,6 +30,8 @@ class Base(object):
             headers['Content-Length'] = '0'
         elif isinstance(data, ObjectJSON):
             body = body.toJSON()
+        else:
+            body = json.dumps(body)
 
         if 'Content-Type' not in headers:
             headers["Content-Type"] = "application/json"
