@@ -1,3 +1,7 @@
+## 0.0.6
+
+Quickfix: fix data argument in Payment's capture_sale method for passing split data.
+
 ## 0.0.5
 
 Quickfix: fix circular import in `base_request.py` introduced in v0.0.4.

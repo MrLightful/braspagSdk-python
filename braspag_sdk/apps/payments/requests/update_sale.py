@@ -34,4 +34,4 @@ class UpdateSale(ApiBase):
         if self.data:
             data = self.data
 
-        return self.send_request('PUT', uri, params=params, data=data)
+        return self.send_request('PUT', uri, data, params)
