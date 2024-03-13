@@ -18,20 +18,17 @@ class Base(object):
 
         s = Session()
 
-        body = data
-
         headers = {
             'User-Agent': "BraspagSdk/Python",
             'RequestId': str(uuid.uuid4()),
             **(self.authorization_headers or {}),
         }
 
+        body = data
         if not body:
             headers['Content-Length'] = '0'
         elif isinstance(data, ObjectJSON):
             body = body.toJSON()
-        else:
-            body = json.dumps(body)
 
         if 'Content-Type' not in headers:
             headers["Content-Type"] = "application/json"
