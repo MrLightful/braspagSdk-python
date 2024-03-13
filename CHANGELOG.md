@@ -1,3 +1,7 @@
+## 0.0.7
+
+Quickfix: fix data argument manipulations in base request.
+
 ## 0.0.6
 
 Quickfix: fix data argument in Payment's capture_sale method for passing split data.
